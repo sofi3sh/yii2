@@ -1,0 +1,25 @@
+stages:
+  - frontend-tests
+  - deploy
+
+run frontend tests:
+  stage: frontend-tests
+  script:
+    - docker exec app_php_1 sh -c "cd frontend && npm install && npm run test"
+  environment:
+    name: production
+    url: http://cs.standartpark.com
+  allow_failure: false
+
+deploy to production:
+  stage: deploy
+  when: manual
+  script:
+    - ./deploy-pull-changes.sh
+    - docker exec app_php_1 sh deploy.sh
+  environment:
+    name: production
+    url: http://cs.standartpark.com
+  only:
+    - master
+  allow_failure: false

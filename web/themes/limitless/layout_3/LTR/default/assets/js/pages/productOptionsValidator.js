@@ -1,0 +1,3 @@
+$(document).ready(function() {
+    // validation script which supposed to validate options sequence coming soon...
+})

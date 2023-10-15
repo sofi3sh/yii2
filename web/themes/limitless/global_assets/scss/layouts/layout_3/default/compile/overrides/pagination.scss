@@ -1,0 +1,26 @@
+.pagination {
+  border: none;
+  margin: 0 10px 8px 0;
+
+  li {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    margin-top: 15px;
+    margin-right: 5px;
+    padding: 7px;
+
+    a {
+      color: #333333;
+    }
+  }
+
+  li.active {
+    background-color: #455A64;
+
+    a {
+      color: #ffffff;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+version: '2'
+services:
+  php:
+    image: dmstr/php-yii2:7.2-fpm-4.7-alpine-nginx
+    environment:
+      YII_ENV_DEV: 0
+      YII_DEBUG: 0
+    volumes:
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      - ./docker/nginx/default.prod.conf:/etc/nginx/conf.d/default.conf
+      - ./:/app:delegated
+    ports:
+      - '80:80'
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: metalpark
+      MYSQL_USER: metalpark
+      MYSQL_PASSWORD: metalpark
+      TZ: Europe/Kiev
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:

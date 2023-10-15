@@ -1,0 +1,56 @@
+
+.progtrckr {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+
+  .icon {
+    font-size: 20px;
+    border: 3px solid;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: 30%;
+    border-color: #ccc;
+
+    i {
+      font-size: 20px;
+      display: 'block'; 
+      top: 30%;
+      color: #ccc;
+    }
+  }
+
+  .text {
+    color: #ccc;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  .progtrckr-doing, .progtrckr-todo, .progtrckr-done {
+    padding: 7px;
+    margin: 10px;
+  }
+
+  .progtrckr-todo, .progtrckr-done {
+    .wizzard-step-name {
+      padding-top: 5px;
+    }
+  }
+  
+  .progtrckr-doing {
+    i {
+      color: #2196f3;
+    }
+
+    .icon {
+      border-color: #2196f3;
+    }
+    
+    .text {
+      color: #000
+    }
+  }
+}
